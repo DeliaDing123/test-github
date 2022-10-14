@@ -29,17 +29,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       
-    - name: Deploy to EB
-      uses: einaregilsson/beanstalk-deploy@v13
-      with:
-        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        application_name: pet-clinic
-        environment_name: Petclinic-env-1
-        version_label: ${{github.SHA}}
-        region: us-east-1
-        use_existing_version_if_available: true
-        deployment_package: target/spring-petclinic-rest-2.6.2.jar
+
 
 
   
